@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    /*static*/ public float speedScale = 4;
+    /*static*/ public float speedScale = 4.0f;
     /*static*/ public float maxVelocityChange = 4.0f;
     /*static*/ public float tiltValue = 5.0f;
 
@@ -37,11 +37,11 @@ public class MovementController : MonoBehaviour
         // MARK: - Update Velocity
         _velocity = v;
 
-        transform.rotation = Quaternion.Euler(joystick.Vertical * tiltValue * v.magnitude, 0, -joystick.Horizontal * tiltValue * v.magnitude);
+        transform.rotation = Quaternion.Euler(zMovementInput * tiltValue * v.magnitude, 0, -xMovementInput * tiltValue * v.magnitude);
     }
 
 
-    private void fixedUpdate() {
+    private void FixedUpdate() {
         if (_velocity != Vector3.zero)
         {
 
