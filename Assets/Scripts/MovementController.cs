@@ -12,7 +12,7 @@ public class MovementController : MonoBehaviour
 
     public Joystick joystick;
     
-    public Rigidbody rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
